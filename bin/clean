@@ -16,10 +16,10 @@ if [[ -f ".slugignore" ]]; then
 
     # Adding "/" to the start if it isn't there makes the glob work
     if [[ ! "$line" =~ ^/.*$ ]]; then
-    	line="/$line"
+      line="/$line"
     fi
 
-    ls -1d **$line 2>/dev/null |
+    ls -1d $line 2>/dev/null |
     while read filepath; do
       rm -rf "$filepath" &>/dev/null
     done
